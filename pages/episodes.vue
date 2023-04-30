@@ -2,7 +2,7 @@
 import type { EpisodeData } from '~/types'
 
 const query = groq`*[_type == "episode"]`
-const {data, refresh} = useLazySanityQuery(query)
+const {data, refresh} = await useLazySanityQuery(query)
 </script>
 <template>
   <div>
@@ -14,7 +14,7 @@ const {data, refresh} = useLazySanityQuery(query)
       <section class="mt-24">
         <ol class="space-y-32 pb-12 lg:pb-24 mb-12 border-b-2 border-secondary-900">
           <li v-for="episode in data as EpisodeData[]">
-            <NuxtLink :to="`/episode/${episode._id}`" class="group outline-none rounded-lg bg-transparent focus:bg-secondary-900 hover:bg-secondary-900 duration-700 items-stretch p-4 lg:p-12 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+            <NuxtLink :to="`/episode/${episode.slug.current}`" class="group outline-none rounded-lg bg-transparent focus:bg-secondary-900 hover:bg-secondary-900 duration-700 items-stretch p-4 lg:p-12 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
               <div class="col-span-1 rounded-md overflow-hidden shadow-flat w-full">
                 <SanityImage 
                   :asset-id="episode.epImage.asset._ref"
@@ -36,7 +36,7 @@ const {data, refresh} = useLazySanityQuery(query)
                 </p>
 
                 <div class="mt-auto pt-6">
-                  <ActionLink :to="episode._id">
+                  <ActionLink :to="`/episode/${episode.slug.current}`">
                     View Episode Details
                   </ActionLink>
                 </div>

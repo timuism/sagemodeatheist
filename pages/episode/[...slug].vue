@@ -2,10 +2,10 @@
 import { EpisodeData } from '~/types'
 
 const route = useRoute()
-const query = groq`*[_id == "${route.params.id[0]}"][0]`
-const { data, refresh } = useLazySanityQuery(query)
+const query = groq`*[slug.current == "${route.params.slug}"][0]`
+const { data, refresh } = await useLazySanityQuery(query)
 const episode = data.value as EpisodeData
-console.log({ episode })
+console.log({ route, episode })
 </script>
 <template>
   <div v-if="episode" class="w-full max-w-screen-2xl mx-auto p-6 lg:p-12">

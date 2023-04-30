@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import type { EpisodeData } from '~/types'
-
-const query = groq`*[_type == "episode"][0...5]`
-const {data, refresh} = await useLazySanityQuery(query)
-</script>
-
 <template>
   <section class="px-8 pt-24 pb-12 md:p-24 max-w-screen-2xl mx-auto">
     <header class="flex justify-between items-end border-b-4 border-secondary-900/25 pb-4">
@@ -13,15 +6,17 @@ const {data, refresh} = await useLazySanityQuery(query)
     </header>
 
     <ol class="mt-24 flex justify-start space-y-12 md:space-y-0 md:space-x-32 flex-col md:flex-row">
-      <EpisodeCard 
-        v-for="(episode) in (data as EpisodeData[])" 
-        v-bind="episode" 
-        key="episode.uuid"
-      />
+      <Suspense>
+        <RecentEpisodes />
+        
+        <template #fallback>
+          Loading!
+        </template>
+      </Suspense>
     </ol>
 
     <div class="w-full mt-24 text-center lg:hidden" aria-hidden="true">
-      <ActionLink to="/episodes">View All Episodes</ActionLink> 
+      <ActionLink to="/episodes">View All Episodes</ActionLink>
     </div>
   </section>
 
@@ -47,7 +42,8 @@ const {data, refresh} = await useLazySanityQuery(query)
       <div
         class="col-span-8 lg:col-span-5 flex items-center justify-center bg-secondary-500 border-2 border-primary-500 rounded-lg px-12 py-24 shadow-flat">
         <p class="font-display text-2xl lg:text-4xl">
-          The <strong>podcast</strong> is hosted by <strong>Timothy Long</strong>. He produces it along with his partner, <strong>Dorlene Ricks</strong>.
+          The <strong>podcast</strong> is hosted by <strong>Timothy Long</strong>. He produces it along with his partner,
+          <strong>Dorlene Ricks</strong>.
         </p>
       </div>
     </div>
@@ -57,7 +53,8 @@ const {data, refresh} = await useLazySanityQuery(query)
     <JoinMailingList />
   </section>
 
-  <div class="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 gap-8 md:gap-28 pt-12 md:pt-32 px-6 md:px-24 max-w-screen-2xl mx-auto mt-24">
+  <div
+    class="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 gap-8 md:gap-20 pt-12 md:pt-32 px-6 md:px-24 max-w-screen-2xl mx-auto mt-24">
     <section class="row-span-3 col-span-1">
       <Header level="h2">Contact</Header>
       <form name="contact" method="POST" class="mr-12" netlify>
@@ -94,8 +91,10 @@ const {data, refresh} = await useLazySanityQuery(query)
     <section class="row-span-1 col-span-1 lg:col-span-2 pt-24 md:pt-0">
       <Header level="h2">Shop</Header>
       <article class="mt-4 text-lg space-y-4">
-        <p>Merchandise to help support and promote the podcast will be coming soon. If you want to be notified about when merch is available, please subscribe to our email list.</p>
-        <ActionLink to="https://mailchi.mp/ab5b8e3dbf0d/join-the-sage-mode-atheist-podcast-mailing-list" class="mt-4">Join our Mailing List</ActionLink>
+        <p>Merchandise to help support and promote the podcast will be coming soon. If you want to be notified about when
+          merch is available, please subscribe to our email list.</p>
+        <ActionLink to="https://mailchi.mp/ab5b8e3dbf0d/join-the-sage-mode-atheist-podcast-mailing-list" class="mt-4">Join
+          our Mailing List</ActionLink>
       </article>
     </section>
 
@@ -105,9 +104,9 @@ const {data, refresh} = await useLazySanityQuery(query)
         <p>Another way to support the podcast is financially. We would greatly appreciate any donation as recording
           and maintaining a podcast. Takes alot of time and money.</p>
 
-          <!-- @todo: setup donations -->
-          <ActionLink to="" class="mt-4">Give Donation</ActionLink>
-  
+        <!-- @todo: setup donations -->
+        <ActionLink to="" class="mt-4">Give Donation</ActionLink>
+
       </article>
     </section>
 
@@ -116,17 +115,3 @@ const {data, refresh} = await useLazySanityQuery(query)
     </section>
   </div>
 </template>
-
-<style scoped>
-ol {
-  counter-reset: count;
-}
-
-li {
-  counter-increment: count;
-}
-
-li::before {
-  content: counter(count, decimal-leading-zero)
-}
-</style>

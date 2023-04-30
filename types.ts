@@ -9,6 +9,9 @@ export interface EpisodeFeaturedImage {
 export interface EpisodeData {
   _id: string
   title: string
+  slug: {
+    current: string
+  }
   description: string
   epNotes: string
   epTranscript: string

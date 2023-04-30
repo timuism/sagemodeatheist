@@ -1,30 +1,23 @@
 <script setup lang="ts">
-import type { EpisodeFeaturedImage } from '~/types';
-export interface EpisodeData {
-  _id: string
-  title: string
-  description: string
-  epNotes: string
-  epTranscript: string
-  epNum: string
-  epImage: EpisodeFeaturedImage
-  isLive: boolean
-}
-const props = defineProps<EpisodeData>()
-
+import type { EpisodeData } from '~/types';
+const props = defineProps<{
+  episode: EpisodeData
+}>()
 const imageAssetRef = computed(() => {
-  return props.epImage.asset._ref
+  return props.episode.epImage.asset._ref
 }) 
+
+console.log(props.episode.slug.current)
 </script>
 
 <template>
   <li class="before:text-5xl before:absolute before:z-10 before:p-4 before:-ml-10 before:-mt-10">
-    <NuxtLink :to="`/episode/${props._id}`"
+    <NuxtLink :to="`/episode/${episode.slug.current}`"
       class="block outline-none group focus:scale-105 min-w-[295px] w-[295px] h-[350px] hover:scale-105 duration-300 cursor-pointer">
       <div class="relative w-full h-full ">
         <div class="absolute z-20 top-0 right-0 h-full flex items-center rounded-md">
           <Header level="h3" class="ml-10 -mr-10 my-8 py-4">
-            {{ title }}
+            {{ episode.title }}
           </Header>
         </div>
 
