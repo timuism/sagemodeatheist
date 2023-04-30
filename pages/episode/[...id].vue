@@ -3,7 +3,7 @@ import { EpisodeData } from '~/types'
 
 const route = useRoute()
 const query = groq`*[_id == "${route.params.id[0]}"][0]`
-const { data, refresh } = useSanityQuery(query)
+const { data, refresh } = useLazySanityQuery(query)
 const episodes = data.value as EpisodeData[]
 console.log({ episodes })
 </script>
