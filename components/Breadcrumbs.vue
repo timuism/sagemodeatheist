@@ -34,7 +34,7 @@ function getPrevPageTitle(link: breadcrumbLink) {
       </div>
 
       <div class="w-full lg:ml-2 lg:w-auto">
-        <p class="bg-secondary-900 px-2 py-1 rounded-md">{{ currentPageTitle }}</p>
+        <p class="bg-secondary-900 px-2 py-1 rounded-md line-clamp-1">{{ currentPageTitle }}</p>
       </div>
     </div>
   </nav>
