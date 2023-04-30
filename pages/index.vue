@@ -81,7 +81,7 @@ const episodes = [
   <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 gap-8 md:gap-28 pt-32 max-w-screen-2xl mx-auto mt-24">
     <section class="row-span-3 col-span-1">
       <Header level="h2">Contact</Header>
-      <form action="" method="" class="mr-12" netlify>
+      <form class="mr-12" netlify>
         <!-- @todo: create form components [label, textinput, textarea, button] -->
 
         <label for="fullName" class="flex flex-col space-y-2 w-full mt-8">
