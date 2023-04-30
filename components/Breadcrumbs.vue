@@ -20,7 +20,7 @@ function getPrevPageTitle(link: breadcrumbLink) {
 }
 </script>
 <template>
-  <nav class="group lg:px-12 mx-auto w-full max-w-screen-xl duration-500">
+  <nav class="group mx-auto w-full duration-500">
     <div
       class="flex flex-col lg:flex-row justify-start items-start lg:items-center bg-secondary-900/25 rounded-lg p-2 lg:p-6 lg:my-12 text-base font-medium font-mono">
       <div>
