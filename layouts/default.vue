@@ -1,6 +1,6 @@
 <template>
   <div data-theme="greenpink">
-    <div class="antialiased font-body bg-secondary-500 text-primary-500 min-h-screen">
+    <div class="antialiased font-body bg-secondary-500 text-primary-500 min-w-[320px]">
       <SkipLink to="#content">
         Skip to Content
       </SkipLink>
@@ -42,7 +42,7 @@
       </main>
 
       <div class="mt-12 lg:mt-24 w-full max-w-screen-2xl mx-auto flex items-center justify-center">
-        <a href="#">
+        <a href="#" class="bg-transparent hover:bg-secondary-900 p-2 md:p-4 duration-300 rounded-full outline-none focus:bg-secondary-900">
           <PodEmblem />
         </a>
       </div>
