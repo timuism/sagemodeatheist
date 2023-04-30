@@ -58,20 +58,18 @@
     <section class="row-span-3 col-span-1">
       <Header level="h2">Contact</Header>
       <form name="contact" method="POST" class="mr-12" netlify>
-        <!-- @todo: create form components [label, textinput, textarea, button] -->
-
-        <label for="fullName" class="flex flex-col space-y-2 w-full mt-8">
-          <div class="text-sm uppercase tracking-widest font-bold">Full Name</div>
+        <label for="firstName" class="flex flex-col space-y-2 w-full mt-8">
+          <div class="text-sm uppercase tracking-widest font-bold">First Name</div>
           <input type="text"
             class="bg-transparent font-mono text-xl border-b-2 border-primary-500 w-full py-1 px-1 outline-none focus:bg-secondary-900 "
-            name="fullName" placeholder="James Baldwin" />
+            name="firstName" placeholder="Tim" />
         </label>
 
         <label for="emailAddress" class="flex flex-col space-y-2 w-full mt-8">
           <div class="text-sm uppercase tracking-widest font-bold">Email Address</div>
           <input type="text"
             class="bg-transparent font-mono text-xl border-b-2 border-primary-500 w-full py-1 px-1 outline-none focus:bg-secondary-900"
-            name="emailAddress" placeholder="james@example.com" />
+            name="emailAddress" placeholder="tim@example.com" />
         </label>
 
         <label for="message" class="flex flex-col space-y-2 w-full mt-8">
