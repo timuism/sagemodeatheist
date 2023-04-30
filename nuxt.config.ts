@@ -3,12 +3,15 @@ export default defineNuxtConfig({
   runtimeConfig: {
     sanityProjectId: process.env.SANITY_PROJECT_ID
   },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxtjs/sanity'
   ],
+
   tailwindcss: {},
+
   googleFonts: {
     display: 'swap',
     families: {
@@ -21,7 +24,12 @@ export default defineNuxtConfig({
       'DM Mono': [400],
     }
   },
+
   sanity: {
     projectId: 'cqqeu99s'
+  },
+
+  devtools: {
+    enabled: true
   }
 })

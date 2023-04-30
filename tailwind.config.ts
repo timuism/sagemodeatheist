@@ -13,6 +13,8 @@ export default {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      white: '#fff',
+      black: '#000'
     },
     fontFamily: {
       'display': ['Unbounded', 'sans-serif'],

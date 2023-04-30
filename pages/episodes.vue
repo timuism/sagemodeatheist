@@ -6,27 +6,29 @@ const {data, refresh} = useLazySanityQuery(query)
 </script>
 <template>
   <div>
-    <article class="w-full max-w-screen-xl mx-auto p-24">
+    <article class="w-full max-w-screen-xl mx-auto p-6 lg:px-12 py-24">
       <Header level="h2">
         All Episodes
       </Header>
 
       <section class="mt-24">
-        <ol class="space-y-32 pb-24 border-b-2 border-secondary-900">
+        <ol class="space-y-32 pb-12 lg:pb-24 mb-12 border-b-2 border-secondary-900">
           <li v-for="episode in data as EpisodeData[]">
-            <NuxtLink :to="`/episode/${episode._id}`" class="group outline-none rounded-lg bg-transparent focus:bg-secondary-900 hover:bg-secondary-900 duration-700 p-12 grid grid-cols-4 gap-8">
-              <div class="col-span-1 rounded-md overflow-hidden shadow-flat h-[200px]">
-                <!-- <img src="/stockphoto1.jpg" alt="" class="object-cover object-top w-full h-full" /> -->
+            <NuxtLink :to="`/episode/${episode._id}`" class="group outline-none rounded-lg bg-transparent focus:bg-secondary-900 hover:bg-secondary-900 duration-700 p-4 lg:p-12 grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8">
+              <div class="col-span-1 rounded-md overflow-hidden shadow-flat w-full h-[200px]">
                 <SanityImage 
                   :asset-id="episode.epImage.asset._ref"
                   alt="" 
                   class="object-cover object-top w-full h-full"
                 />
               </div>
-              <div class="col-span-3 flex flex-col">
-                <Header level="h3">
-                  {{ episode.title }}
-                </Header>
+              <div class="col-span-1 lg:col-span-3 flex flex-col">
+                <div class="flex flex-col-reverse">
+                  <Header level="h3">
+                    {{ episode.title }}
+                  </Header>
+                  <p class="mb-2 font-mono tracking-wider uppercase"><span hidden>Released on</span> {{ episode.releaseDate }}</p>
+                </div>
 
                 <Header level="h4" display="h5" class="mt-6">Description</Header>
                 <p class="text-xl mt-1">
@@ -45,8 +47,9 @@ const {data, refresh} = useLazySanityQuery(query)
 
 
       </section>
+
+      <JoinMailingList />
     </article>
 
-    <JoinMailingList />
   </div>
 </template>

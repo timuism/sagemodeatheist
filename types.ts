@@ -14,5 +14,6 @@ export interface EpisodeData {
   epTranscript: string
   epNum: string
   epImage: EpisodeFeaturedImage
-  isLive: boolean
+  isLive: boolean,
+  releaseDate: string
 }
