@@ -78,7 +78,7 @@ const episodes = [
     <JoinMailingList />
   </section>
 
-  <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 gap-8 md:gap-28 pt-32 max-w-screen-2xl mx-auto mt-24">
+  <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 gap-8 md:gap-28 pt-32 px-24 max-w-screen-2xl mx-auto mt-24">
     <section class="row-span-3 col-span-1">
       <Header level="h2">Contact</Header>
       <form name="contact" method="POST" class="mr-12" netlify>
