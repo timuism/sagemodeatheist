@@ -81,7 +81,7 @@ const episodes = [
   <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 gap-8 md:gap-28 pt-32 max-w-screen-2xl mx-auto mt-24">
     <section class="row-span-3 col-span-1">
       <Header level="h2">Contact</Header>
-      <form action="" method="" class="mr-12">
+      <form action="" method="" class="mr-12" netlify>
         <!-- @todo: create form components [label, textinput, textarea, button] -->
 
         <label for="fullName" class="flex flex-col space-y-2 w-full mt-8">
@@ -95,7 +95,7 @@ const episodes = [
           <div class="text-sm uppercase tracking-widest font-bold">Email Address</div>
           <input type="text"
             class="bg-transparent font-mono text-xl border-b-2 border-primary-500 w-full py-1 px-1 outline-none focus:bg-secondary-900"
-            name="fullName" placeholder="james@example.com" />
+            name="emailAddress" placeholder="james@example.com" />
         </label>
 
         <label for="message" class="flex flex-col space-y-2 w-full mt-8">
@@ -118,7 +118,7 @@ const episodes = [
         <p>Merchandise to help support and promote the podcast will be coming soon. If you want to be notified about when merch is available, please subscribe to our email list.</p>
 
         <!-- @todo: set up mailing list -->
-        <form action="">
+        <form action="https://mailchi.mp/ab5b8e3dbf0d/join-the-sage-mode-atheist-podcast-mailing-list">
           <button type="submit"
             class="mt-4 font-display inline-flex justify-between border-b-2 border-primary-500 outline-none hover:border-primary-900 focus:border-primary-900 duration-300">
             <div class="text-lg md:text-2xl">Join our Mailing List</div>

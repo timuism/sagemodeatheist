@@ -27,7 +27,7 @@
             <ListenNowButton />
 
             <div class="mt-8 flex justify-between w-full">
-              <NavLink to="/join" label="Join" desc="Let's build a community" />
+              <NavLink to="https://mailchi.mp/ab5b8e3dbf0d/join-the-sage-mode-atheist-podcast-mailing-list" target="_blank" label="Join" desc="Let's build a community" />
               <NavLink to="/donate" label="Donate" desc="Support the podcast" />
             </div>
           </nav>
