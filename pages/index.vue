@@ -2,7 +2,8 @@
 import type { EpisodeData } from '~/types'
 
 const query = groq`*[_type == "episode"][0...5]`
-const {data, refresh} = useLazySanityQuery(query)
+const {data, refresh} = await useLazySanityQuery(query)
+console.log({data})
 </script>
 <template>
   <section class="p-24 max-w-screen-2xl mx-auto">
