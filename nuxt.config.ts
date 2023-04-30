@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    sanityProjectId: process.env.SANITY_PROJECT_ID
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
@@ -19,6 +22,6 @@ export default defineNuxtConfig({
     }
   },
   sanity: {
-    projectId: process.env.SANITY_PROJECT_ID
+    projectId: 'cqqeu99s'
   }
 })
