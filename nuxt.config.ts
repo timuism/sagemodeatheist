@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/sanity'
   ],
   tailwindcss: {},
   googleFonts: {
@@ -16,5 +17,8 @@ export default defineNuxtConfig({
       },
       'DM Mono': [400],
     }
+  },
+  sanity: {
+    projectId: process.env.SANITY_PROJECT_ID
   }
 })

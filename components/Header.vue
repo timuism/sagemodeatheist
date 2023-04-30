@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {h, Component, useSlots, useAttrs} from 'vue'
+import {h, useSlots, useAttrs} from 'vue'
+import type {Component} from 'vue'
 
 type HeaderLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 interface HeaderProps {

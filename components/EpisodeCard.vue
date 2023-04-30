@@ -1,14 +1,25 @@
 <script setup lang="ts">
-defineProps<{
+import type { EpisodeFeaturedImage } from '~/types';
+export interface EpisodeData {
+  _id: string
   title: string
-  // image?: string
-  // alt?: string
-}>()
+  description: string
+  epNotes: string
+  epTranscript: string
+  epNum: string
+  epImage: EpisodeFeaturedImage
+  isLive: boolean
+}
+const props = defineProps<EpisodeData>()
+
+const imageAssetRef = computed(() => {
+  return props.epImage.asset._ref
+}) 
 </script>
 
 <template>
   <li class="before:text-5xl before:absolute before:z-10 before:p-4 before:-ml-10 before:-mt-10">
-    <NuxtLink to="/episodes"
+    <NuxtLink :to="`/episode/${props._id}`"
       class="block outline-none group focus:scale-105 min-w-[295px] w-[295px] h-[350px] hover:scale-105 duration-300 cursor-pointer">
       <div class="relative w-full h-full ">
         <div class="absolute z-20 top-0 right-0 h-full flex items-center rounded-md">
@@ -18,7 +29,13 @@ defineProps<{
         </div>
 
         <div class="w-full h-full overflow-hidden">
-          <img src="/stockphoto1.jpg" alt="" class="object-cover opacity-10 group-focus:opacity-25 group-hover:opacity-25 duration-200" />
+
+          <!-- @todo: add alt to image in sanity cms -->
+          <SanityImage 
+            :asset-id="imageAssetRef"
+            class="object-cover opacity-10 group-focus:opacity-25 group-hover:opacity-25 duration-200"
+            auto="format"
+          />
         </div>
 
         <div class="absolute top-0 left-0 h-full w-full bg-gradient-to-l from-secondary-500 from-25% to-transparent" />

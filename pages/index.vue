@@ -1,33 +1,8 @@
 <script setup lang="ts">
-const episodes = [
-  {
-    uuid: 1,
-    episodeNum: '01',
-    title: 'Lift Off! An introduction to the Sage Mode Atheist Podcast',
-    image: {
-      src: '',
-      alt: ''
-    }
-  },
-  {
-    uuid: 2,
-    episodeNum: '2',
-    title: 'Lets talk definitions. Atheist? Agnostic? Skeptic?',
-    image: {
-      src: '',
-      alt: ''
-    }
-  },
-  {
-    uuid: 3,
-    episodeNum: '03',
-    title: 'Leaving the faith with Dorlene Ricks',
-    image: {
-      src: '',
-      alt: ''
-    }
-  }
-]
+import type { EpisodeData } from '~/types'
+
+const query = groq`*[_type == "episode"][0...5]`
+const {data, refresh} = useLazySanityQuery(query)
 </script>
 <template>
   <section class="p-24 max-w-screen-2xl mx-auto">
@@ -41,8 +16,12 @@ const episodes = [
       </NuxtLink>
     </header>
 
-    <ol class="mt-24 flex justify-center space-y-12 md:space-y-0 md:space-x-32 flex-col md:flex-row">
-      <EpisodeCard v-for="(episode) in episodes" v-bind="episode" key="episode.uuid" />
+    <ol class="mt-24 flex justify-start space-y-12 md:space-y-0 md:space-x-32 flex-col md:flex-row">
+      <EpisodeCard 
+        v-for="(episode) in (data as EpisodeData[])" 
+        v-bind="episode" 
+        key="episode.uuid"
+      />
     </ol>
   </section>
 
